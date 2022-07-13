@@ -1,0 +1,337 @@
+{
+  "namespaces": [
+    "public"
+  ],
+  "name": "public",
+  "tables": [
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "geojson": {
+          "name": "geojson",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "city_province",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "city_province_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "geojson": {
+          "name": "geojson",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "city_province_id": {
+          "name": "city_province_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        }
+      },
+      "name": "district_town",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "district_town_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "district_town_city_province_id_foreign": {
+          "constraintName": "district_town_city_province_id_foreign",
+          "columnNames": [
+            "city_province_id"
+          ],
+          "localTableName": "public.district_town",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.city_province",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "city_province_id": {
+          "name": "city_province_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "district_town_id": {
+          "name": "district_town_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "geojson": {
+          "name": "geojson",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "neighborhood",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "neighborhood_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "neighborhood_city_province_id_foreign": {
+          "constraintName": "neighborhood_city_province_id_foreign",
+          "columnNames": [
+            "city_province_id"
+          ],
+          "localTableName": "public.neighborhood",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.city_province",
+          "updateRule": "cascade"
+        },
+        "neighborhood_district_town_id_foreign": {
+          "constraintName": "neighborhood_district_town_id_foreign",
+          "columnNames": [
+            "district_town_id"
+          ],
+          "localTableName": "public.neighborhood",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.district_town",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "phone": {
+          "name": "phone",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "gender": {
+          "name": "gender",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "birthday": {
+          "name": "birthday",
+          "type": "timestamptz(0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 6,
+          "mappedType": "datetime"
+        },
+        "living_city_province_id": {
+          "name": "living_city_province_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "living_district_town_id": {
+          "name": "living_district_town_id",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "profile_picture": {
+          "name": "profile_picture",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "customers",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "customers_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "customers_living_city_province_id_foreign": {
+          "constraintName": "customers_living_city_province_id_foreign",
+          "columnNames": [
+            "living_city_province_id"
+          ],
+          "localTableName": "public.customers",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.city_province",
+          "updateRule": "cascade"
+        },
+        "customers_living_district_town_id_foreign": {
+          "constraintName": "customers_living_district_town_id_foreign",
+          "columnNames": [
+            "living_district_town_id"
+          ],
+          "localTableName": "public.customers",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.district_town",
+          "updateRule": "cascade"
+        }
+      }
+    }
+  ]
+}
